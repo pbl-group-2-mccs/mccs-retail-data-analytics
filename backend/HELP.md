@@ -1,4 +1,20 @@
 # Getting Started
+# Database setup
+### Start docker from your local machine
+### Start Mysql Database from docker
+
+<code>   docker-compose -f compose.yaml up</code>
+
+### Connect to Mysql Database from a SQL client, for example DBeaver
+
+Please using the following URL for database connection. 
+<code>jdbc:mysql://localhost:61047/mydatabase?allowPublicKeyRetrieval=true</code>
+
+# How to build project
+<code>./gradlew build</code>
+
+# How to run project locally
+<code>./gradlew bootRun</code>
 
 ### Reference Documentation
 For further reference, please consider the following sections:
