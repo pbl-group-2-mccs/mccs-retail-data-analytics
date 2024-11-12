@@ -7,7 +7,7 @@
 
 ### Connect to Mysql Database from a SQL client, for example DBeaver
 
-Please using the following URL for database connection. 
+Please use the following URL for database connection. 
 <code>jdbc:mysql://localhost:61047/mydatabase?allowPublicKeyRetrieval=true</code>
 
 # How to build project
