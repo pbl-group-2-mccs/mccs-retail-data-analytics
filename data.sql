@@ -1,5 +1,24 @@
 
 
+-- Login --------------------------------------------------------------------------
+
+DELETE FROM user_info;
+ALTER TABLE user_info AUTO_INCREMENT = 1001;
+
+INSERT INTO `user_info` (`user_name`, `first_name`, `last_name`, `login_id`, `password`)
+VALUES
+('jdoe', 'John', 'Doe', 'john.doe', 'pass1234'),
+('asmith', 'Alice', 'Smith', 'alice.smith', 'alice2023'),
+('bjohnson', 'Bob', 'Johnson', 'bob.j', 'secure!456'),
+('cmiller', 'Carol', 'Miller', 'carol.m', 'password!'),
+('dmartinez', 'David', 'Martinez', 'david.m', 'david567'),
+('eclark', 'Emily', 'Clark', 'emily.c', 'clark@789'),
+('fwilson', 'Frank', 'Wilson', 'frank.w', 'frank2022'),
+('ghall', 'Grace', 'Hall', 'grace.h', 'ghall#pass'),
+('hlee', 'Hannah', 'Lee', 'hannah.l', 'lee@2024'),
+('knguyen', 'Kevin', 'Nguyen', 'kevin.n', 'kevn!345');
+
+
 -- Sales and Marketing -------------------------------------------------------------
 
 DELETE FROM customer;

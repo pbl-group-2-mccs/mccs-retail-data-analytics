@@ -34,6 +34,18 @@ DROP TABLE IF EXISTS `sales_opportunity`;
 DROP TABLE IF EXISTS `customer`;
 
 
+-- Login --------------------------------------------------------------------------
+CREATE TABLE `user_info` (
+    `user_id` INT UNSIGNED AUTO_INCREMENT,
+    `user_name` VARCHAR(20) NOT NULL,
+    `first_name` VARCHAR(20) NOT NULL,
+    `last_name` VARCHAR(20) NOT NULL,
+    `login_id` VARCHAR(20) NOT NULL,
+    `password` VARCHAR(12) NOT NULL,
+    PRIMARY KEY (`user_id`)
+) ENGINE = InnoDB;
+
+
 -- Sales and Marketing -------------------------------------------------------------
 
 CREATE TABLE `customer` (
