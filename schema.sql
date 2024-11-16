@@ -34,28 +34,149 @@ DROP TABLE IF EXISTS `sales_opportunity`;
 DROP TABLE IF EXISTS `customer`;
 
 
--- Login --------------------------------------------------------------------------
-CREATE TABLE `user_info` (
-    `user_id` INT UNSIGNED AUTO_INCREMENT,
-    `user_name` VARCHAR(20) NOT NULL,
-    `first_name` VARCHAR(20) NOT NULL,
-    `last_name` VARCHAR(20) NOT NULL,
-    `login_id` VARCHAR(20) NOT NULL,
-    `password` VARCHAR(12) NOT NULL,
-    PRIMARY KEY (`user_id`)
+CREATE TABLE user_info (
+    user_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
+    login_id VARCHAR(20) NOT NULL,
+    login_password VARCHAR(12) NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE department (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(100) NOT NULL,
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES user_info(user_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE permission (
+    permission_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    department_id INT NOT NULL,
+    table_permission VARCHAR(100) NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE customer (
+    customer_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    phone_number VARCHAR(15),
+    address TEXT,
+    purchase_history TEXT,
+    loyalty_tier ENUM('Bronze', 'Silver', 'Gold', 'Platinum')
+) ENGINE = InnoDB;
+
+CREATE TABLE sales_order (
+    sales_order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status ENUM('Pending', 'Shipped', 'Delivered') NOT NULL DEFAULT 'Pending',
+    created_by INT,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (created_by) REFERENCES Users(user_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE sales_order_item (
+    so_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    sales_order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (quantity * unit_price) STORED,
+    FOREIGN KEY (sales_order_id) REFERENCES SalesOrders(sales_order_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE product (
+	product_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    category_id INT,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (category_id) REFERENCES product_category(category_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE product_category (
+	category_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(100) NOT NULL
+) ENGINE = InnoDB;
+
+CREATE TABLE supplier (
+    supplier_id INT AUTO_INCREMENT PRIMARY KEY,
+    supplier_name VARCHAR(100) NOT NULL,
+    contact_name VARCHAR(100),
+    phone_number VARCHAR(20),
+    email VARCHAR(100),
+    address TEXT
+) ENGINE = InnoDB;
+
+CREATE TABLE inventory (
+    inventory_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    warehouse_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 0,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id),
+    FOREIGN KEY (warehouse_id) REFERENCES Warehouses(warehouse_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE warehouse (
+    warehouse_id INT AUTO_INCREMENT PRIMARY KEY,
+    warehouse_name VARCHAR(100) NOT NULL UNIQUE,
+    location VARCHAR(255),
+    capacity INT
+) ENGINE = InnoDB;
+
+CREATE TABLE purchase_order (
+    purchase_order_id INT AUTO_INCREMENT PRIMARY KEY,
+    supplier_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status ENUM('Pending', 'Completed', 'Canceled') NOT NULL DEFAULT 'Pending',
+    created_by INT,
+    FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id),
+    FOREIGN KEY (created_by) REFERENCES Users(user_id)
+) ENGINE = InnoDB;
+
+CREATE TABLE purchase_order_item (
+    po_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    purchase_order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (quantity * unit_price) STORED,
+    FOREIGN KEY (purchase_order_id) REFERENCES PurchaseOrders(purchase_order_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 ) ENGINE = InnoDB;
 
 
--- Sales and Marketing -------------------------------------------------------------
 
-CREATE TABLE `customer` (
-    `customer_id` INT UNSIGNED AUTO_INCREMENT,
-    `name` VARCHAR(100) NOT NULL,
-    `contact` VARCHAR(100) NOT NULL,
-    `purchase_history` TEXT,
-    `loyalty_tier` VARCHAR(50),
-    PRIMARY KEY (`customer_id`)
+CREATE TABLE financial_transaction (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_type ENUM('Purchase', 'Sale', 'Refund') NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    transaction_date DATE NOT NULL,
+    reference_id INT,
+    status ENUM('Pending', 'Completed', 'Failed') NOT NULL DEFAULT 'Pending'
 ) ENGINE = InnoDB;
+
+CREATE TABLE employee (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_birth DATE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone_number VARCHAR(20),
+    department_id INT,
+    position VARCHAR(50),
+    salary DECIMAL(10, 2) NOT NULL,
+    date_hired DATE NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+) ENGINE = InnoDB;
+
 
 CREATE TABLE `sales_opportunity` (
     `opportunity_id` INT UNSIGNED AUTO_INCREMENT,
