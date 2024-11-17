@@ -1,0 +1,25 @@
+server:
+  port: 8000
+security:
+  jwt:
+    token:
+      secret-key: my-secret-key
+
+spring:
+  application:
+    name:retailanalytics
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydatabase
+    username: myuser
+    password: secret
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+  sql:
+    init:
+      platform: mysql
+      mode:
