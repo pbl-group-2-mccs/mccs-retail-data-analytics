@@ -6,16 +6,21 @@ CREATE TABLE user_info (
     last_name VARCHAR(20) NOT NULL,
     login_id VARCHAR(20) NOT NULL,
     login_password VARCHAR(12) NOT NULL,
-    department_id INT,
-    FOREIGN KEY (department_id) REFERENCES department(department_id)
+    department_id INT
 ) ENGINE = InnoDB;
+
 
 CREATE TABLE department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
     department_name VARCHAR(100) NOT NULL,
-    manager_id INT,
-    FOREIGN KEY (manager_id) REFERENCES user_info(user_id)
+    manager_id INT
 ) ENGINE = InnoDB;
+
+ALTER TABLE user_info ADD CONSTRAINT fk_department FOREIGN KEY (department_id)
+REFERENCES department(department_id);
+
+ALTER TABLE department ADD CONSTRAINT fk_manager FOREIGN KEY (manager_id)
+REFERENCES user_info(user_id);
 
 CREATE TABLE permission (
     permission_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
