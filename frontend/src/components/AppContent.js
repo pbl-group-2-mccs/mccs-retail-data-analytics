@@ -38,6 +38,7 @@ export default class AppContent extends React.Component {
             (response) => {
                 setAuthHeader(response.data.token);
                 this.setState({componentToShow: "messages"});
+                this.props.history.push('/messages');
             }).catch(
             (error) =>{
                 setAuthHeader(null);

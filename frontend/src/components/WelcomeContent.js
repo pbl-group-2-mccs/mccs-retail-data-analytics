@@ -8,7 +8,6 @@ export default class WelcomeContent extends React.Component {
                 <div className="jumbotron jumbotrom-fluid">
                     <div className="container">
                         <h1 className="display-4">Welcome</h1>
-                        <p className="lead">Login to see protected content.</p>
                     </div>
                 </div>
             </div>
