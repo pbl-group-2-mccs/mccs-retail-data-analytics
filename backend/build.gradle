@@ -25,13 +25,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.auth0:java-jwt:4.3.0'
-
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	configurations.all {
+		exclude group: 'org.springdoc', module: 'springdoc-openapi-common'
+		exclude group: 'org.springdoc', module: 'springdoc-openapi-ui'
+	}
 	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	// Testcontainers for MySQL
