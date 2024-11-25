@@ -17,9 +17,15 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     open-in-view: false
   sql:
     init:
       platform: mysql
       mode:
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
