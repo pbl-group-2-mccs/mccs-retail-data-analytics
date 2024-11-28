@@ -1,9 +1,9 @@
 # Test Coverage
---------------------------------------------------------------------------------
+---------------
 ## Backend
---------------------------------------------------------------------------------
+----------
 ### Gradle Config (Skip if having version of build.gradle the same with develop branch)
---------------------------------------------------------------------------------
+---------------
 Ensure your _build.gradle_ file includes the necessary dependencies for testing:
 ```
 plugins {
@@ -58,9 +58,9 @@ The tests use:
 --------------------------------------------------------------------------------
 The test results will be available in:
 - HTML report: 
-build/reports/tests/test/index.html 
+  build/reports/tests/test/index.html 
 - XML report: 
-build/test-results/test/
+  build/test-results/test/
 - Console Output: (if adding _testLogging_ configuration in build.gradle)
 ```
 test {
