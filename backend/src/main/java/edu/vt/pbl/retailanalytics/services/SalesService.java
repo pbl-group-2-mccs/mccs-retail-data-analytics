@@ -14,7 +14,6 @@ public class SalesService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // 날짜별 총 매출을 조회하는 메서드
     public List<Map<String, Object>> getSalesByDate() {
         String query = """
             SELECT DATE(order_date) AS order_date, SUM(total_amount) AS total_sales
@@ -25,7 +24,6 @@ public class SalesService {
         return jdbcTemplate.queryForList(query);
     }
 
-    // 지역별 총 매출을 조회하는 메서드
     public List<RegionSalesDto> getSalesByRegion() {
         String query = """
             SELECT c.state AS region, SUM(so.total_amount) AS total_sales

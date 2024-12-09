@@ -35,7 +35,8 @@ public class SecurityConfig {
                                 "/webjars/**", // Webjars for Swagger UI
                                 "/favicon.ico", // Allow access to favicon
                                 "/api/inventory/**",
-                                "/api/sales-orders/**"
+                                "/api/sales-orders/**",
+                                "/api/visualization/**"
                         ).permitAll()
                         .anyRequest().authenticated());
 

@@ -19,14 +19,6 @@ public class SalesOrderController {
 
     @Autowired
     private SalesOrderRepository salesOrderRepository;
-    private SalesService salesService;
-
-    @GetMapping("/region-sales")
-    @Operation(summary = "Get total sales by region")
-    public ResponseEntity<List<RegionSalesDto>> getTotalSalesByRegion() {
-        List<RegionSalesDto> regionSales = salesService.getSalesByRegion();
-        return ResponseEntity.ok(regionSales);
-    }
 
     @GetMapping
     public List<SalesOrder> getAllSalesOrders() {
