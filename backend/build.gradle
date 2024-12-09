@@ -31,6 +31,7 @@ dependencies {
 		exclude group: 'org.springdoc', module: 'springdoc-openapi-common'
 		exclude group: 'org.springdoc', module: 'springdoc-openapi-ui'
 	}
+	compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 

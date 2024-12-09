@@ -1,4 +1,4 @@
-CREATE TABLE app_user
+CREATE TABLE IF NOT EXISTS app_user
 (
     id         bigint auto_increment primary key,
     first_name varchar(100) not null,
@@ -7,7 +7,7 @@ CREATE TABLE app_user
     password   varchar(100) not null
 );
 
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -20,7 +20,7 @@ CREATE TABLE customers (
     country VARCHAR(100)
 );
 
-CREATE TABLE inventory (
+CREATE TABLE IF NOT EXISTS inventory (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(100) NOT NULL,
     product_line VARCHAR(100),  -- For analyzing sales performance by product line
@@ -29,7 +29,7 @@ CREATE TABLE inventory (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE sales_order (
+CREATE TABLE IF NOT EXISTS sales_order (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -38,7 +38,7 @@ CREATE TABLE sales_order (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
 );
 
-CREATE TABLE sales_order_items (
+CREATE TABLE IF NOT EXISTS sales_order_items (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
