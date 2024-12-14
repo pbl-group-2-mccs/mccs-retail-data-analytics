@@ -2,36 +2,31 @@ package edu.vt.pbl.retailanalytics.entites;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
 @Entity
-@Table(name = "sales_order")
+@Table(name = "sales_orders")
 public class SalesOrder {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderId;
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
+    @Column(name = "customer")
+    private String customer;
 
-    @Column(name = "order_date", nullable = false)
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
-    @Column(name = "total_amount", nullable = false)
-    private Double totalAmount;
+    @Column(name = "total_amount")
+    private BigDecimal totalAmount;
 
-    @Convert(converter = OrderStatusConverter.class)
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private OrderStatus status;
-
 }

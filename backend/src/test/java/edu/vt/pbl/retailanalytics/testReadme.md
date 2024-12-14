@@ -1,85 +1,146 @@
 # Test Coverage
 ## Backend
 
-### Gradle Config (Skip if having version of build.gradle the same with develop branch)
+### Project Setup
 ---
-Ensure your _build.gradle_ file includes the necessary dependencies for testing:
-```
+1. Ensure your project has the correct dependencies in `build.gradle`:
+```gradle
 plugins {
-    id 'org.springframework.boot' version '3.2.0'
-    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
-}
-
-java {
-    sourceCompatibility = '17'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'jacoco'  // For test coverage reporting
 }
 
 dependencies {
-    // Essential for testing
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'    
-    testImplementation 'org.springframework.security:spring-security-test'    
-    testImplementation 'org.testcontainers:junit-jupiter:1.17.3'            
-    testImplementation 'org.testcontainers:mysql:1.17.3'                    
-
-    // Required by tests because they're used in the main code being tested
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'   
-    implementation 'org.springframework.boot:spring-boot-starter-security'   
-    implementation 'org.springframework.boot:spring-boot-starter-web'         
-    runtimeOnly 'com.mysql:mysql-connector-j'                                
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:junit-jupiter:1.17.3'
+    testImplementation 'org.testcontainers:mysql:1.17.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
     useJUnitPlatform()
-    // For better test output visibility
-    testLogging {
-        events "passed", "skipped", "failed"
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 }
+```
+
+2. Configure MySQL in `compose.yaml` for development:
+```yaml
+services:
+  mysql:
+    image: 'mysql:8.0'
+    platform: linux/x86_64
+    environment:
+      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_USER=myuser'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+    ports:
+      - '3308:3306'
 ```
 
 ### Running Tests
 ---
 1. Navigate to your project directory
-2. Run `./gradlew test`
+2. Run the tests:
+```bash
+./gradlew test
+```
+3. View test coverage report:
+```bash
+open build/jacocoHtml/index.html  # macOS
+xdg-open build/jacocoHtml/index.html  # Linux
+start build/jacocoHtml/index.html  # Windows
+```
 
-### Function
+### Test Coverage
 ---
-The Tests Cover:
-1. CRUD Operations for Inventory
-    - Create: The createProduct() method in InventoryControllerTest tests the creation of a new product.
-    - Read: The getAllProducts() and getProductById() methods in InventoryControllerTest test retrieving products.
-    - Update: The updateProduct() method in InventoryControllerTest tests updating an existing product.
-    - Delete: The deleteProduct() method in InventoryControllerTest tests deleting a product.
-2. Database Integration Testing
-    - The MySQLTestContainer class sets up a MySQL database using TestContainers, allowing for integration tests that interact with a real database instance. This is utilized in both InventoryControllerTest and InventoryRepositoryTest.
-3. Security with Mock Users
-    - The @WithMockUser(roles = "ADMIN") annotation in the controller tests simulates an authenticated user with the role of "ADMIN", allowing you to test security aspects of the API endpoints.
-4. Repository Layer Functionality
-    - The InventoryRepositoryTest class tests the repository layer by verifying that products can be saved and retrieved correctly from the database.
+The tests cover three main areas:
 
-The Tests Use:
-1. TestContainers: 
-    - Used in MySQLTestContainer to create a real MySQL database for integration testing.
-2. MockMvc: 
-    - Used in InventoryControllerTest to perform HTTP requests and assert responses without starting a full HTTP server.
-3. @DataJpaTest: 
-    - Used in InventoryRepositoryTest to configure an in-memory database for testing JPA repositories.
-4. Spring Security Test: 
-    - Used in InventoryControllerTest to test security features by simulating authenticated users.
+1. Authentication (AuthControllerTest)
+   - Login functionality
+   - Registration functionality
+   - Error handling for invalid credentials
+   - Error handling for duplicate users
+   - JWT token generation
+
+2. Inventory Management (InventoryControllerTest)
+   - Get all inventory items
+   - Get inventory by ID
+   - Create new inventory
+   - Update existing inventory
+   - Delete inventory
+   - Error handling for not found items
+
+3. Sales Order Management (SalesOrderControllerTest)
+   - Get all sales orders
+   - Get orders by time period
+   - Create new sales order
+   - Relationship handling between orders and items
+
+### Test Implementation Details
+---
+1. Mock MVC Testing
+   - Uses `@AutoConfigureMockMvc` for testing controllers
+   - Simulates HTTP requests without starting a server
+   - Validates response status codes and content
+
+2. Database Testing
+   - Uses TestContainers for MySQL integration tests
+   - Configures test database properties dynamically
+   - Ensures database operations work as expected
+
+3. Security Testing
+   - Tests authentication flows
+   - Validates token generation and validation
+   - Tests secured endpoints
+
+4. Data Transfer Objects (DTOs)
+   - Tests proper mapping between entities and DTOs
+   - Validates request/response structures
+   - Ensures proper data transformation
+
+### Test Structure
+---
+Each test class follows a consistent pattern:
+1. Setup with `@SpringBootTest` and `@AutoConfigureMockMvc`
+2. Dependency injection of required components
+3. Helper methods for creating test data
+4. Individual test methods for each functionality
+5. Proper mocking of dependencies using `@MockBean`
+
+### Common Test Patterns
+---
+1. Success Cases
+   - Verify correct status codes (200, 201, etc.)
+   - Validate response content
+   - Check proper data transformation
+
+2. Error Cases
+   - Verify proper error status codes (400, 401, 404, etc.)
+   - Validate error messages
+   - Test boundary conditions
+
+3. Data Validation
+   - Test required fields
+   - Validate data constraints
+   - Check relationship integrity
 
 ### Results
 ---
-The test results will be available in:
-- HTML report: 
-  build/reports/tests/test/index.html 
-- XML report: 
-  build/test-results/test/
-- Console Output: (if adding _testLogging_ configuration in build.gradle)
-```
-test {
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
-}
-```
+Test results can be found in:
+- HTML Coverage Report: `build/jacocoHtml/index.html`
+- Test Results: `build/reports/tests/test/index.html`
+- XML Reports: `build/test-results/test/`

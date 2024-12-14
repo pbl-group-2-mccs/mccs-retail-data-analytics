@@ -2,13 +2,12 @@ package edu.vt.pbl.retailanalytics.repositories;
 
 import edu.vt.pbl.retailanalytics.entites.SalesOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Repository
 public interface SalesOrderRepository extends JpaRepository<SalesOrder, Integer> {
-
-    @Query("SELECT so FROM SalesOrder so WHERE so.orderDate BETWEEN :startTime AND :endTime")
-    List<SalesOrder> findByOrderDateBetween(@Param("startTime") LocalDateTime startTime, @Param("endTime") LocalDateTime endTime);
+    List<SalesOrder> findByOrderDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

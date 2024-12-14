@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI openAPI() {
+    public OpenAPI usersMicroserviceOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
                         .title("Retail Analytics API")
-                        .description("API documentation for Retail Analytics application")
+                        .description("Retail Analytics Application API Documentation")
                         .version("1.0"));
     }
 }

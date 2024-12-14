@@ -7,12 +7,11 @@ import jakarta.persistence.Converter;
 public class OrderStatusConverter implements AttributeConverter<OrderStatus, String> {
 
     @Override
-    public String convertToDatabaseColumn(OrderStatus status) {
-        if (status == null) {
+    public String convertToDatabaseColumn(OrderStatus attribute) {
+        if (attribute == null) {
             return null;
         }
-        return status.name().substring(0, 1).toUpperCase() +
-                status.name().substring(1).toLowerCase();
+        return attribute.toString();
     }
 
     @Override

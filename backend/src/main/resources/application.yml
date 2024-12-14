@@ -10,21 +10,26 @@ spring:
     name:retailanalytics
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mydatabase
+    url: jdbc:mysql://localhost:3308/mydatabase?useSSL=false&allowPublicKeyRetrieval=true
     username: myuser
     password: secret
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
   sql:
     init:
       platform: mysql
       mode:
 springdoc:
   api-docs:
+    enabled: true
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
