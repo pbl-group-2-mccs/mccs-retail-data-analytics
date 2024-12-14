@@ -1,0 +1,67 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'edu.vt.pbl.retailanalytics'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.projectlombok:lombok:1.18.26'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.auth0:java-jwt:4.3.0'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	configurations.all {
+		exclude group: 'org.springdoc', module: 'springdoc-openapi-common'
+		exclude group: 'org.springdoc', module: 'springdoc-openapi-ui'
+	}
+	compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	runtimeOnly 'com.mysql:mysql-connector-java'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	// Testcontainers for MySQL
+	testImplementation 'org.testcontainers:junit-jupiter:1.17.3' // Use the latest version
+	testImplementation 'org.testcontainers:mysql:1.17.3' // Use the latest version
+
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+//task runAnnotationProcessor(type: JavaCompile) {
+//	source = sourceSets.main.java
+//	classpath = sourceSets.main.compileClasspath + configurations.annotationProcessor + configurations.runtimeClasspath
+//	destinationDir = file("$buildDir/generated-sources/annotationProcessor")
+//	options.annotationProcessorPath = configurations.annotationProcessor
+//	options.compilerArgs += ['-proc:none'] // Disable other processors if needed
+//}
+
+tasks.withType(JavaCompile) {
+	options.annotationProcessorPath = configurations.annotationProcessor
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
