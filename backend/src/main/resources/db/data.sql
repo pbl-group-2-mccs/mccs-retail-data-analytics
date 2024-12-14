@@ -1,3 +1,5 @@
+USE group2db;
+
 INSERT INTO customers (name, email, phone, address_line1, city, state, zip_code, country)
 VALUES ('Daniel Underwood', 'bellbrenda@example.com', '9509196445', '257 Wilkinson Glen Suite 667', 'New Jennifer',
         'Minnesota', '74256', 'USA'),
