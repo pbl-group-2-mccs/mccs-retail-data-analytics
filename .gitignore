@@ -39,3 +39,6 @@ node_modules/
 test-output/
 
 backend/bin/
+
+# Ignore application.yml file to prevent uploading sensitive information
+src/main/resources/application.yml

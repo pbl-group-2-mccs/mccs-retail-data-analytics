@@ -1,3 +1,5 @@
+USE group2db;
+
 CREATE TABLE IF NOT EXISTS app_user
 (
     id         bigint auto_increment primary key,
