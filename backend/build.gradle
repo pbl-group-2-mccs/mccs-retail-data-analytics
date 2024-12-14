@@ -46,6 +46,8 @@ dependencies {
 	testImplementation 'org.testcontainers:mysql:1.17.3' // Use the latest version
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	runtimeOnly 'com.mysql:mysql-connector-j:8.0.33'
+	testRuntimeOnly 'com.h2database:h2'
 }
 
 //task runAnnotationProcessor(type: JavaCompile) {
