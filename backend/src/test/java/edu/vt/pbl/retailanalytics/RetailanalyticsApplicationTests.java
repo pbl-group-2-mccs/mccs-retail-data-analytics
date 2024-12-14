@@ -14,10 +14,10 @@ import java.time.Duration;
 class RetailanalyticsApplicationTests {
 
 	@Container
-	static MySQLContainer<?> mysqlContainer = new MySQLContainer<>("mysql:8.0.39")
-			.withDatabaseName("mydatabase")
-			.withUsername("myuser")
-			.withPassword("secret")
+	static MySQLContainer<?> mysqlContainer = new MySQLContainer<>("mysql:8.0.40")
+			.withDatabaseName("group2db")
+			.withUsername("admin")
+			.withPassword("pbl-2theTop")
 			.withStartupAttempts(3)
 			.withStartupTimeout(Duration.ofMinutes(5));
 

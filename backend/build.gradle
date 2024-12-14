@@ -37,7 +37,7 @@ dependencies {
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	runtimeOnly 'com.mysql:mysql-connector-java'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'

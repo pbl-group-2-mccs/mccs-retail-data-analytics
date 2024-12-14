@@ -40,5 +40,3 @@ test-output/
 
 backend/bin/
 
-# Ignore application.yml file to prevent uploading sensitive information
-backend/src/main/resources/application.yml
