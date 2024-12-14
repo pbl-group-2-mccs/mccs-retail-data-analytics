@@ -14,7 +14,7 @@ import java.time.Duration;
 class RetailanalyticsApplicationTests {
 
 	@Container
-	static MySQLContainer<?> mysqlContainer = new MySQLContainer<>("mysql:8.0.40")
+	static MySQLContainer<?> mysqlContainer = new MySQLContainer<>("mysql:8.0.39")
 			.withDatabaseName("mydatabase")
 			.withUsername("myuser")
 			.withPassword("secret")

@@ -10,9 +10,9 @@ spring:
     name:retailanalytics
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mydatabase
-    username: myuser
-    password: secret
+    url: jdbc:mysql://group2-rds-mysql-erp.creuc22smwdy.us-east-1.rds.amazonaws.com:3306/group2-rds-mysql-erp
+    username: admin
+    password: pbl-2theTop
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
