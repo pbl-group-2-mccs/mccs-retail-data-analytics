@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'jacoco'
 }
 
 group = 'edu.vt.pbl.retailanalytics'
@@ -63,6 +64,31 @@ tasks.withType(JavaCompile) {
     targetCompatibility = '17'
 }
 
-tasks.named('test') {
+
+test {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+	testLogging {
+		events "passed", "skipped", "failed"
+		showStandardStreams = true
+	}
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = false
+		csv.required = false
+		html.required = true
+		html.destination = layout.buildDirectory.dir('reports/jacoco').get().asFile
+	}
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					'**/config/*',
+					'**/entites/*',
+					'**/dtos/*'
+			])
+		}))
+	}
 }

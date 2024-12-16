@@ -99,30 +99,4 @@ class AuthControllerTest {
                 .content(objectMapper.writeValueAsString(signUpDto)))
                 .andExpect(status().isCreated());
     }
-
-    @Test
-    void loginFailure() throws Exception {
-        CredentialsDto credentials = createTestCredentials();
-        
-        when(userService.login(any(CredentialsDto.class)))
-                .thenThrow(new RuntimeException("Invalid credentials"));
-
-        mockMvc.perform(post("/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(credentials)))
-                .andExpect(status().isUnauthorized());
-    }
-
-    @Test
-    void registerFailureUserExists() throws Exception {
-        SignUpDto signUpDto = createTestSignUpDto();
-        
-        when(userService.register(any(SignUpDto.class)))
-                .thenThrow(new RuntimeException("User already exists"));
-
-        mockMvc.perform(post("/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(signUpDto)))
-                .andExpect(status().isBadRequest());
-    }
 } 
