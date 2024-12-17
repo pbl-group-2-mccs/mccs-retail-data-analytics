@@ -23,9 +23,11 @@ public class VisualizationController {
     @Operation(summary = "Get total sales by region")
     public ResponseEntity<List<RegionSalesDto>> getTotalSalesByRegion() {
         List<RegionSalesDto> regionSales = salesService.getSalesByRegion();
+        System.out.println(regionSales);
         return ResponseEntity.ok(regionSales);
     }
     @GetMapping("/sales-by-date")
+    @Operation(summary = "Get total sales by date")
     public List<Map<String, Object>> getSalesByDate() {
         return salesService.getSalesByDate();
     }

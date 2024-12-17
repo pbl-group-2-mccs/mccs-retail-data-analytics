@@ -16,9 +16,12 @@ public interface SalesOrderRepository extends JpaRepository<SalesOrder, Integer>
     List<SalesOrder> findByOrderDateBetween(@Param("startTime") LocalDateTime startTime, @Param("endTime") LocalDateTime endTime);
 
 
-    @Query("SELECT new edu.vt.pbl.retailanalytics.dtos.RegionSalesDto(COALESCE(c.state, 'Unknown'), SUM(so.totalAmount)) " +
+    @Query("SELECT new edu.vt.pbl.retailanalytics.dtos.RegionSalesDto(" +
+            "COALESCE(c.state, 'Unknown'), " +
+            "SUM(so.quantity * so.unitPrice)) " +  // Correct calculation for total sales
             "FROM SalesOrder so " +
             "JOIN so.customer c " +
-            "GROUP BY c.state")
+            "GROUP BY c.state " +
+            "ORDER BY SUM(so.quantity * so.unitPrice) DESC")
     List<RegionSalesDto> findTotalSalesByRegion();
 }

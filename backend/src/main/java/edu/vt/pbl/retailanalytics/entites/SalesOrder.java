@@ -27,8 +27,11 @@ public class SalesOrder {
     @Column(name = "order_date", nullable = false)
     private LocalDateTime orderDate;
 
-    @Column(name = "total_amount", nullable = false)
-    private Double totalAmount;
+    @Column(name = "quantity", nullable = false)
+    private Double quantity;
+
+    @Column(name = "unit_price", nullable = false)
+    private Double unitPrice;
 
     @Convert(converter = OrderStatusConverter.class)
     @Column(name = "status")
