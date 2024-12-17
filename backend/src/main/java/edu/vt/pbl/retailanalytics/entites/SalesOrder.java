@@ -24,6 +24,9 @@ public class SalesOrder {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @Column(nullable = false)
+    private String productName;
+
     @Column(name = "order_date", nullable = false)
     private LocalDateTime orderDate;
 
