@@ -16,12 +16,14 @@ public class SalesService {
 
     public List<Map<String, Object>> getSalesByDate() {
         String query = """
-            SELECT DATE(order_date) AS order_date, SUM(quantity * unit_price) AS total_sales
+            SELECT DATE(order_date) AS order_date, quantity AS total_sales
             FROM sales_order
             GROUP BY DATE(order_date)
             ORDER BY order_date;
         """;
-        return jdbcTemplate.queryForList(query);
+        List<Map<String, Object>> result = jdbcTemplate.queryForList(query);
+        System.out.println("fetched total " + result.size() + " records");
+        return result;
     }
 
     public List<RegionSalesDto> getSalesByRegion() {
