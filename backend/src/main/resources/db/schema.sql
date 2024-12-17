@@ -1,6 +1,7 @@
 USE group2db;
 
 DROP TABLE IF EXISTS app_user;
+ALTER TABLE sales_order DROP FOREIGN KEY sales_order_ibfk_1;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS sales_order;
