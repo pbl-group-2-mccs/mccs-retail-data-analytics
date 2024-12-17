@@ -39,7 +39,7 @@ class InventoryControllerTest {
                 .productName("Test Product")
                 .productLine("Test Line")
                 .quantity(100)
-                .price(50.0)
+                .unitPrice(50.0)
                 .createdAt(LocalDateTime.now())
                 .build();
     }

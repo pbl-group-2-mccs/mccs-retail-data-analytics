@@ -39,4 +39,6 @@ node_modules/
 test-output/
 
 backend/bin/
+backend/.vscode/
+backend/.idea/
 
