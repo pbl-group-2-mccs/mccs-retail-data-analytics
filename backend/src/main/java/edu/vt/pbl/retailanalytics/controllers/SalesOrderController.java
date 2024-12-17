@@ -54,7 +54,8 @@ public class SalesOrderController {
                 .map(salesOrder -> {
                     salesOrder.setCustomer(salesOrderDetails.getCustomer());
                     salesOrder.setOrderDate(salesOrderDetails.getOrderDate());
-                    salesOrder.setTotalAmount(salesOrderDetails.getTotalAmount());
+                    salesOrder.setQuantity(salesOrderDetails.getQuantity());
+                    salesOrder.setUnitPrice(salesOrderDetails.getUnitPrice());
                     salesOrder.setStatus(salesOrderDetails.getStatus());
                     return ResponseEntity.ok(salesOrderRepository.save(salesOrder));
                 })

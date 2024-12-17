@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS app_user;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS sales_order;
+DROP TABLE IF EXISTS sales_order_items;
 
 CREATE TABLE IF NOT EXISTS app_user
 (
