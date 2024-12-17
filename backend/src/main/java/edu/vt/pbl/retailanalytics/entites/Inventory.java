@@ -29,7 +29,7 @@ public class Inventory {
     private Integer quantity;
 
     @Column(nullable = false)
-    private Double price;
+    private Double unitPrice;
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;

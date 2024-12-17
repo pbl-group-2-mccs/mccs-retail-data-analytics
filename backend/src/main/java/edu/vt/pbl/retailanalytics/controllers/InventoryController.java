@@ -39,7 +39,7 @@ public class InventoryController {
                     inventory.setProductName(inventoryDetails.getProductName());
                     inventory.setProductLine(inventoryDetails.getProductLine());
                     inventory.setQuantity(inventoryDetails.getQuantity());
-                    inventory.setPrice(inventoryDetails.getPrice());
+                    inventory.setUnitPrice(inventoryDetails.getUnitPrice());
                     return ResponseEntity.ok(inventoryRepository.save(inventory));
                 })
                 .orElse(ResponseEntity.notFound().build());
