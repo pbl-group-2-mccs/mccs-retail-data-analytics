@@ -1,0 +1,91 @@
+.ant-layout {
+    height: 100%;
+}
+
+.header {
+    padding: 0;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background: url('~@/assets/logo.png') no-repeat center /30px auto;
+}
+
+.logo-text {
+    margin-left: 60px;
+    font-size: 25px;
+    color: #BFBFBF;
+}
+
+.layout-content {
+    overflow-y: auto;
+}
+
+.user-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 20px;
+    color: #fff;
+
+    .tour {
+        margin-right: 20px;
+    }
+
+    .user-name {
+        margin-right: 20px;
+    }
+
+    .user-logout {
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+}
+.ant-layout-header {
+    padding: 0 !important;
+}
+
+//.ant-layout {
+//    height: 100%;
+//}
+//
+//.header {
+//    padding: 0;
+//}
+//
+//.logo {
+//    width: 200px;
+//    height: 60px;
+//    background: url('~@/assets/logo.png') no-repeat center / 180px auto;
+//}
+//
+//.layout-content {
+//    overflow-y: auto;
+//}
+//
+//.user-info {
+//    position: absolute;
+//    right: 0;
+//    top: 0;
+//    padding-right: 20px;
+//    color: #fff;
+//
+//    .introduction {
+//        margin-right: 20px;
+//    }
+//
+//    .user-name {
+//        margin-right: 20px;
+//    }
+//
+//    .user-logout {
+//        display: inline-block;
+//        cursor: pointer;
+//    }
+//}
+//.ant-layout-header {
+//    padding: 0 !important;
+//}
+//
