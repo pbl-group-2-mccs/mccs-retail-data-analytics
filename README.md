@@ -58,11 +58,13 @@ CoreSync specifically focuses on the **sales department**, enabling inventory ma
 | --- | --- |
 | The login page ensures secure access by allowing only authorized inventory managers to access the database.<br><br>![Login](https://github.com/user-attachments/assets/052b75b9-a4d8-4faa-86cf-eb289354cf68) | This feature supports users unfamiliar with computers and new web pages. The tutorial button is located at the top right side of the first page, and clicking it initiates the tutorial process.<br><br>![Tutorial](https://github.com/user-attachments/assets/4b4a0b76-02ef-4272-94a1-008719ca911e) |
 
+| **Dashboard** |
+| --- |
+| The Dashboard provides an overview of current sales data and trends, including:<br>- Monthly sales trends<br>- Sales proportions by product<br>- Sales performance across different stores<br><br>This section delivers actionable insights for optimizing inventory management through graphical representations with graphs and charts.<br><br>![Dashboard](https://github.com/user-attachments/assets/ac8d15ed-27d5-47a0-acb0-91af49f806c2) |
+
 | **Data Management (Inventory)** | **Data Management (Sales-Order)** |
 | --- | --- |
 | Similar to the Sales-Order Page, this section provides a streamlined interface for reviewing current inventory data. Users can:<br>- Filter inventory by product name or product line<br>- Quickly search for relevant information<br><br>![Inventory](https://github.com/user-attachments/assets/2c4409ff-9775-43f6-a4f9-ba0a253506a3) | The Sales-Order Page allows users to access and manage sales data from the internal database through a user-friendly interface. It includes:<br>- Filters for easy data searches<br>- Controls for modifying and managing retail service records intuitively<br><br>![Sales Order](https://github.com/user-attachments/assets/506a8952-4746-401b-bf42-9267de88eeaa) |
 
-| **Dashboard** |
-| --- |
-| The Dashboard provides an overview of current sales data and trends, including:<br>- Monthly sales trends<br>- Sales proportions by product<br>- Sales performance across different stores<br><br>This section delivers actionable insights for optimizing inventory management through graphical representations with graphs and charts.<br><br>![Dashboard](https://github.com/user-attachments/assets/ac8d15ed-27d5-47a0-acb0-91af49f806c2) |
+
 
