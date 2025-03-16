@@ -25,7 +25,7 @@ CoreSync specifically focuses on the **sales department**, enabling inventory ma
 ## Tech Stack
 
 **<Tools & Frameworks>**  
-- **Backend**: <img src="https://img.shields.io/badge/SpringBoot-6DB33F?logo=springboot">, Spring Security  
+- **Backend**: <img src="https://img.shields.io/badge/Spring Boot-6DB33F?logo=springboot">, <img src="https://img.shields.io/badge/Spring Security-6DB33F?logo=springsecurity">  
 - **Frontend**: React.js, Echarts  
 - **Database**: MySQL, AWS RDS  
 - **Containerization**: Docker  
