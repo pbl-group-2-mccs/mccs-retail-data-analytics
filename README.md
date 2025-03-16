@@ -56,28 +56,28 @@ CoreSync specifically focuses on the **sales department**, enabling inventory ma
 
 ### Login Page
 The login page ensures secure access by allowing only authorized inventory managers to access the database.
+<img width="1920" alt="Login" src="https://github.com/user-attachments/assets/052b75b9-a4d8-4faa-86cf-eb289354cf68" />
 
 ### Tutorial Process
 This feature supports users unfamiliar with computers and new web pages. The tutorial button is located at the top right side of the first page, and clicking it initiates the tutorial process.
+<img width="1920" alt="Tutorial" src="https://github.com/user-attachments/assets/4b4a0b76-02ef-4272-94a1-008719ca911e" />
 
 ### Dashboard
 The Dashboard provides an overview of current sales data and trends, including:  
 - Monthly sales trends  
 - Sales proportions by product  
 - Sales performance across different stores  
-
 This section delivers actionable insights for optimizing inventory management through graphical representations with graphs and charts.
+<img width="1920" alt="Dashboard" src="https://github.com/user-attachments/assets/ac8d15ed-27d5-47a0-acb0-91af49f806c2" />
 
 ### Data Management (Sales-Order)
 The Sales-Order Page allows users to access and manage sales data from the internal database through a user-friendly interface. It includes:  
 - Filters for easy data searches  
 - Controls for modifying and managing retail service records intuitively  
+<img width="1920" alt="Sales Order" src="https://github.com/user-attachments/assets/506a8952-4746-401b-bf42-9267de88eeaa" />
 
 ### Data Management (Inventory)
 Similar to the Sales-Order Page, this section provides a streamlined interface for reviewing current inventory data. Users can:  
 - Filter inventory by product name or product line  
 - Quickly search for relevant information  
-
----
-
-> Screenshots for each section will be added soon.
+<img width="1920" alt="Inventory" src="https://github.com/user-attachments/assets/2c4409ff-9775-43f6-a4f9-ba0a253506a3" />
