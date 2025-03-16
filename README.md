@@ -24,14 +24,33 @@ CoreSync specifically focuses on the **sales department**, enabling inventory ma
 
 ## Tech Stack
 
-**<Tools & Frameworks>**  
-- **Backend**: <img src="https://img.shields.io/badge/Spring Boot-6DB33F?logo=springboot">, <img src="https://img.shields.io/badge/Spring Security-6DB33F?logo=springsecurity">  
-- **Frontend**: <img src="https://img.shields.io/badge/React-61DAFB?logo=react">, <img src="https://img.shields.io/badge/Apache ECharts-AA344D?logo=apacheecharts">  
-- **Database**: <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql">, <img src="https://img.shields.io/badge/Amazon RDSL-527FFF?logo=amazonrds">  
-- **Containerization**: <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker">  
-- **Version Control**: <img src="https://img.shields.io/badge/Git-F05032?logo=git">, <img src="https://img.shields.io/badge/GitHub-181717?logo=github">  
-- **Prototype**: <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma">  
-- **Testing**: <img src="https://img.shields.io/badge/Swagger-85EA2D?logo=swagger">  
+**Tools & Frameworks:**
+
+**Backend**  
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) 
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)  
+
+**Frontend**  
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) 
+![Apache ECharts](https://img.shields.io/badge/Apache%20ECharts-AA344D?style=for-the-badge&logo=apacheecharts&logoColor=white)  
+
+**Database**  
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)  
+![Amazon RDS](https://img.shields.io/badge/Amazon%20RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)  
+
+**Containerization**  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)  
+
+**Version Control**  
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) 
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)  
+
+**Prototype**  
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)  
+
+**Testing**  
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)  
+
 
 ## Screenshots
 
