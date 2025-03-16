@@ -26,12 +26,12 @@ CoreSync specifically focuses on the **sales department**, enabling inventory ma
 
 **<Tools & Frameworks>**  
 - **Backend**: <img src="https://img.shields.io/badge/Spring Boot-6DB33F?logo=springboot">, <img src="https://img.shields.io/badge/Spring Security-6DB33F?logo=springsecurity">  
-- **Frontend**: React.js, Echarts  
-- **Database**: MySQL, AWS RDS  
-- **Containerization**: Docker  
-- **Version Control**: Git, GitHub  
-- **Prototype**: Figma  
-- **Testing**: Swagger UI  
+- **Frontend**: <img src="https://img.shields.io/badge/React-61DAFB?logo=react">, <img src="https://img.shields.io/badge/Apache ECharts-AA344D?logo=apacheecharts">  
+- **Database**: <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql">, <img src="https://img.shields.io/badge/Amazon RDSL-527FFF?logo=amazonrds">  
+- **Containerization**: <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker">  
+- **Version Control**: <img src="https://img.shields.io/badge/Git-F05032?logo=git">, <img src="https://img.shields.io/badge/GitHub-181717?logo=github">  
+- **Prototype**: <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma">  
+- **Testing**: <img src="https://img.shields.io/badge/Swagger-85EA2D?logo=swagger">  
 
 ## Screenshots
 
