@@ -12,10 +12,10 @@
 
 | Name          | GitHub Profile | Role                        |
 |---------------|----------------|-----------------------------|
-| Hyungmin Kim | [GitHub Link](INSERT_URL_HERE) | Back-end, Database |
-| Jianwen Dou  | [GitHub Link](INSERT_URL_HERE) | Database                    |
-| Jiazhi Yan   | [GitHub Link](INSERT_URL_HERE) | Front-end                   |
-| Lingjun Liu  | [GitHub Link](INSERT_URL_HERE) | Back-end, Database          |
+| Hyungmin Kim | [GitHub Link](https://github.com/hyungminkimdev) | Back-end, Database |
+| Jianwen Dou  | [GitHub Link](https://github.com/Golaugh) | Database                    |
+| Jiazhi Yan   | [GitHub Link](https://github.com/yanse702) | Front-end                   |
+| Lingjun Liu  | [GitHub Link](https://github.com/Marissa0912) | Back-end, Database          |
 
 ## Project Overview
 Our product, **CoreSync**, is an Enterprise Resource Planning (ERP) System designed for **Marine Corps Community Services (MCCS)**. As MCCS considers expanding its retail operations from physical stores to online services, digitalizing and centralizing data management becomes essential for operational efficiency.
